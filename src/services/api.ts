@@ -73,7 +73,7 @@ export const api = {
     },
   },
 
-  // ============ User Endpoints ============
+  // =========== User Endpoints ============
   users: {
     getProfile: async (username: string) => {
       return apiCall(`/api/users/${username}`);
