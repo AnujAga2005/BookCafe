@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookCafe - Setup Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: linear-gradient(135deg, #f5f1e8 0%, #d4e8d4 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #6b4423 0%, #8b6635 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .alert {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+        
+        .alert-error {
+            background: #f8d7da;
+            border-left-color: #dc3545;
+        }
+        
+        .alert h3 {
+            margin-bottom: 10px;
+            color: #856404;
+        }
+        
+        .alert-error h3 {
+            color: #721c24;
+        }
+        
+        .steps {
+            margin: 30px 0;
+        }
+        
+        .step {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #6b4423;
+        }
+        
+        .step h3 {
+            color: #6b4423;
+            margin-bottom: 10px;
+        }
+        
+        .code {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #6b4423;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            margin: 10px 10px 10px 0;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #553318;
+        }
+        
+        .btn-secondary {
+            background: #95b89b;
+        }
+        
+        .btn-secondary:hover {
+            background: #7a9a80;
+        }
+        
+        .links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .link-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            padding: 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+        }
+        
+        .link-card:hover {
+            border-color: #6b4423;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        
+        .link-card h4 {
+            color: #6b4423;
+            margin-bottom: 8px;
+        }
+        
+        .link-card p {
+            color: #666;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+        
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 8px;
+        }
+        
+        .checklist {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .checklist h4 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+        
+        .checklist label {
+            display: block;
+            padding: 8px 0;
+            cursor: pointer;
+        }
+        
+        .checklist input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 BookCafe Setup Guide</h1>
+            <p>Get your book social network up and running!</p>
+        </div>
+        
+        <div class="content">
+            <div class="alert alert-error">
+                <h3>🚨 Getting "Route Not Found" or "Failed to Fetch" Errors?</h3>
+                <p><strong>The backend server is not running!</strong> Follow the quick start below to fix it.</p>
+            </div>
+            
+            <div class="steps">
+                <div class="step">
+                    <h3><span class="emoji">1️⃣</span> Start MongoDB</h3>
+                    <p>Make sure MongoDB is running:</p>
+                    <div class="code">mongosh</div>
+                    <p>If that doesn't work, start it:</p>
+                    <div class="code"># macOS<br>brew services start mongodb-community<br><br># Windows<br>net start MongoDB<br><br># Linux<br>sudo systemctl start mongod</div>
+                </div>
+                
+                <div class="step">
+                    <h3><span class="emoji">2️⃣</span> Start Backend (Terminal 1)</h3>
+                    <div class="code">cd backend<br>npm install<br>npm run dev</div>
+                    <p>Wait until you see: <code>✅ MongoDB connected successfully</code></p>
+                </div>
+                
+                <div class="step">
+                    <h3><span class="emoji">3️⃣</span> Start Frontend (NEW Terminal)</h3>
+                    <div class="code">npm install<br>npm run dev</div>
+                    <p>Open browser: <a href="http://localhost:5173" target="_blank">http://localhost:5173</a></p>
+                </div>
+                
+                <div class="step">
+                    <h3><span class="emoji">4️⃣</span> Test It</h3>
+                    <p>Go to <a href="http://localhost:5173" target="_blank">http://localhost:5173</a> and create an account!</p>
+                    <a href="http://localhost:5173" target="_blank" class="btn">Open BookCafe</a>
+                    <a href="http://localhost:5001/api/health" target="_blank" class="btn btn-secondary">Test Backend</a>
+                </div>
+            </div>
+            
+            <div class="checklist">
+                <h4>✅ Quick Checklist</h4>
+                <label><input type="checkbox"> MongoDB is running</label>
+                <label><input type="checkbox"> Backend terminal shows "Server running on port 5001"</label>
+                <label><input type="checkbox"> Frontend terminal shows "Local: http://localhost:5173"</label>
+                <label><input type="checkbox"> Both terminals are still open</label>
+                <label><input type="checkbox"> Can access <a href="http://localhost:5173" target="_blank">http://localhost:5173</a></label>
+            </div>
+            
+            <h2 style="margin: 40px 0 20px 0;">📖 Detailed Guides</h2>
+            
+            <div class="links">
+                <a href="START_HERE.md" class="link-card">
+                    <h4>🚀 START_HERE.md</h4>
+                    <p>Step-by-step setup guide. Start here if backend won't start.</p>
+                </a>
+                
+                <a href="ROUTE_NOT_FOUND_FIX.md" class="link-card">
+                    <h4>🔧 ROUTE_NOT_FOUND_FIX.md</h4>
+                    <p>Complete diagnostic guide for "route not found" errors.</p>
+                </a>
+                
+                <a href="README_FIRST.md" class="link-card">
+                    <h4>📋 README_FIRST.md</h4>
+                    <p>Overview of the issue and quick links to all guides.</p>
+                </a>
+                
+                <a href="QUICK_FIX.md" class="link-card">
+                    <h4>⚡ QUICK_FIX.md</h4>
+                    <p>Quick reference for what was fixed and how to set up.</p>
+                </a>
+                
+                <a href="SETUP_TROUBLESHOOTING.md" class="link-card">
+                    <h4>🛠️ SETUP_TROUBLESHOOTING.md</h4>
+                    <p>Comprehensive troubleshooting and setup guide.</p>
+                </a>
+                
+                <a href="STARTUP_CHECKLIST.md" class="link-card">
+                    <h4>✅ STARTUP_CHECKLIST.md</h4>
+                    <p>Step-by-step checklist to verify everything works.</p>
+                </a>
+                
+                <a href="test-connection.html" class="link-card">
+                    <h4>🔍 test-connection.html</h4>
+                    <p>Browser-based tool to test backend connection.</p>
+                </a>
+                
+                <a href="README.md" class="link-card">
+                    <h4>📖 README.md</h4>
+                    <p>Full project documentation and features.</p>
+                </a>
+            </div>
+            
+            <div style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-radius: 8px;">
+                <h3>💡 Key Points</h3>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li>You need <strong>TWO terminals</strong> running at the same time</li>
+                    <li>Backend runs on port <strong>5001</strong></li>
+                    <li>Frontend runs on port <strong>5173</strong></li>
+                    <li>MongoDB must be running before starting backend</li>
+                    <li>Google OAuth is <strong>optional</strong> - use email/password</li>
+                    <li>The <code>.env</code> file has been created for you in <code>/backend</code></li>
+                </ul>
+            </div>
+            
+            <div style="margin-top: 30px; text-align: center; padding: 30px;">
+                <h3 style="margin-bottom: 15px;">Ready to Start?</h3>
+                <a href="http://localhost:5173" target="_blank" class="btn" style="font-size: 1.2em; padding: 15px 30px;">
+                    🚀 Open BookCafe
+                </a>
+                <p style="margin-top: 10px; color: #666;">
+                    (Make sure backend and frontend are running first!)
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
