@@ -120,11 +120,11 @@ export function LoginPage() {
               <span className="w-full border-t" />
             </div>
             <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-white px-2 text-gray-500">Or continue with</span>
+              {/* <span className="bg-white px-2 text-gray-500">Or continue with</span> */}
             </div>
           </div>
 
-          <Button
+          {/* <Button
             type="button"
             variant="outline"
             className="w-full"
@@ -149,7 +149,7 @@ export function LoginPage() {
               />
             </svg>
             Sign in with Google
-          </Button>
+          </Button> */}
         </CardContent>
 
         <CardFooter className="flex justify-center">
